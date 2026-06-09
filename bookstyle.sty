@@ -1,0 +1,114 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{bookstyle}[2026/06/08 Print-book style for the thesis]
+
+\RequirePackage{fontspec}
+\setmainfont{Libertinus Serif}
+\setsansfont[Scale=MatchLowercase]{Libertinus Sans}
+\setmonofont[Scale=MatchLowercase]{Libertinus Mono}
+
+\RequirePackage{mathtools}
+\RequirePackage{unicode-math}
+\setmathfont{Libertinus Math}
+\RequirePackage{bm}
+\RequirePackage{mathrsfs}
+
+\RequirePackage[
+  paperwidth=7in,
+  paperheight=10in,
+  inner=22mm,
+  outer=18mm,
+  top=19mm,
+  bottom=24mm,
+  headsep=6mm,
+  footskip=10mm
+]{geometry}
+
+\RequirePackage[final,protrusion=true,tracking=true]{microtype}
+\RequirePackage{graphicx}
+\RequirePackage{enumerate}
+\RequirePackage{multirow}
+\RequirePackage{appendix}
+\RequirePackage[numbers,sort&compress]{natbib}
+\RequirePackage{relsize}
+\RequirePackage{url}
+\RequirePackage{listings}
+\RequirePackage{verbatim}
+\RequirePackage{aas_macros}
+\makeatletter
+\providecommand{\jnl@style}{\normalfont}
+\makeatother
+\RequirePackage{xcolor}
+\RequirePackage{scrlayer-scrpage}
+\RequirePackage[hidelinks]{hyperref}
+\RequirePackage{bookmark}
+
+\graphicspath{{figures/intro-figures/}}
+
+\KOMAoptions{
+  headings=big,
+  chapterprefix=false,
+  numbers=noenddot,
+  parskip=never,
+  captions=tableheading
+}
+
+\setkomafont{disposition}{\normalfont}
+\setkomafont{chapter}{\normalfont\huge\scshape}
+\setkomafont{section}{\normalfont\Large\scshape}
+\setkomafont{subsection}{\normalfont\large\itshape}
+\setkomafont{subsubsection}{\normalfont\normalsize\bfseries}
+\setkomafont{caption}{\small}
+\setkomafont{captionlabel}{\small\bfseries}
+\setcapindent{0pt}
+
+\renewcommand*{\chapterformat}{%
+  \mbox{\chapappifchapterprefix{\nobreakspace}\thechapter\autodot
+  \enskip}%
+}
+
+\clearpairofpagestyles
+\automark[section]{chapter}
+\ihead{\headmark}
+\ohead{\pagemark}
+\renewcommand*{\chapterpagestyle}{plain}
+\cfoot[\pagemark]{}
+
+\setlength{\parindent}{1.25em}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{1.5em}
+\raggedbottom
+\widowpenalty=10000
+\clubpenalty=10000
+\displaywidowpenalty=10000
+
+\DeclareOldFontCommand{\rm}{\normalfont\rmfamily}{\mathrm}
+\DeclareOldFontCommand{\sf}{\normalfont\sffamily}{\mathsf}
+\DeclareOldFontCommand{\tt}{\normalfont\ttfamily}{\mathtt}
+\DeclareOldFontCommand{\bf}{\normalfont\bfseries}{\mathbf}
+\DeclareOldFontCommand{\it}{\normalfont\itshape}{\mathit}
+\DeclareOldFontCommand{\sl}{\normalfont\slshape}{\@nomath\sl}
+\DeclareOldFontCommand{\sc}{\normalfont\scshape}{\@nomath\sc}
+
+\newenvironment{paperabstract}{%
+  \small
+  \begin{quote}
+  \noindent\textbf{Abstract.}\ \ignorespaces
+}{%
+  \end{quote}
+}
+
+\newenvironment{publishedpaper}{%
+  \clearpage
+  \thispagestyle{plain}
+  \begin{center}
+  \begin{minipage}{0.9\textwidth}
+  \centering
+}{%
+  \end{minipage}
+  \end{center}
+  \vspace{1.5em}
+}
+
+\newcommand{\VEC}[1]{\mathbf{#1}}
+\newcommand{\df}{\delta}
+\providecommand{\ga}{\gtrsim}
