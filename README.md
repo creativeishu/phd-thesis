@@ -87,9 +87,12 @@ acknowledgements.
 | `figures/` | Introduction and paper figures, grouped by chapter |
 | `aas_macros.sty` | Astronomy journal and symbol macros |
 | `mn2e.bst` | Bibliography style |
-| `Makefile` | Build, continuous-preview, and cleanup commands |
+| `Makefile` | Thesis and cover build, continuous-preview, and cleanup commands |
 | `.latexmkrc` | LuaLaTeX and latexmk configuration |
 | `thesis.pdf` | Latest compiled book |
+| `cover/cover-wrap.tex` | Editable full-cover layout |
+| `cover/cover-wrap-background.png` | Full-cover background artwork |
+| `cover/thesis-cover-wrap.pdf` | Flattened print-ready cover |
 
 ## Building the Thesis
 
@@ -98,6 +101,8 @@ The build requires a TeX Live installation containing:
 - LuaLaTeX
 - BibTeX
 - latexmk
+- Ghostscript
+- `sips` on macOS for the flattened cover conversion
 
 The `Makefile` currently defaults to the TeX Live 2026 installation at:
 
@@ -105,7 +110,7 @@ The `Makefile` currently defaults to the TeX Live 2026 installation at:
 /usr/local/texlive/2026/bin/universal-darwin
 ```
 
-To compile the complete thesis:
+To compile the complete thesis and the print-ready cover:
 
 ```sh
 make
@@ -117,7 +122,7 @@ To continuously rebuild whenever a source file or figure changes:
 make watch
 ```
 
-To remove auxiliary files while preserving the final `thesis.pdf`:
+To remove auxiliary files while preserving `thesis.pdf` and the final cover:
 
 ```sh
 make clean
